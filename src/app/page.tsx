@@ -63,7 +63,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/40 flex flex-col justify-between p-6 lg:p-12">
           <header className="flex justify-between items-center">
-            <img src="/images/eazy-pg-logo.png" alt="Logo" className="h-12 w-auto brightness-0 invert" />
+            <img src="/images/eazy-pg-logo.png" alt="Logo" className="h-12 w-auto" />
             <nav className="hidden md:flex gap-8 text-white font-medium">
               <a href="#rooms">Rooms</a>
               <a href="#gallery">Gallery</a>
