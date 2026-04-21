@@ -1,20 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff; /* Clean white for primary background */
-  --foreground: #212529; /* Dark charcoal for rich text contrast */
-  --primary-color: #007bff; /* A vibrant, professional blue */
-  --secondary-color: #6c757d; /* A muted grey for secondary elements */
-  --accent-color: #ffc107; /* A subtle golden accent for highlights */
-  --border-color: #e2e8f0; /* Light border for clean lines */
-  --light-background: #f8f9fa; /* Very light background for subtle sections */
+  --background: #ffffff;
+  --foreground: #1a202c;
+  --primary-color: #2b6cb0; /* Deep blue for trust */
+  --secondary-color: #f7fafc;
+  --muted-text: #4a5568;
+  --accent-color: #edf2f7;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 * {
@@ -29,23 +27,25 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Montserrat', 'Open Sans', sans-serif; /* A popular, elegant font for modern design */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-a {
-  color: var(--primary-color);
-  text-decoration: none;
+/* Image-first emphasis */
+.hero-image-container {
+  position: relative;
+  overflow: hidden;
 }
 
-a:hover {
-  text-decoration: underline;
+.image-overlay {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6));
 }
 
-input,
-select,
-textarea,
-button {
-  font: inherit;
+.gallery-card img {
+  transition: transform 0.5s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.05);
 }
 
 ::selection {

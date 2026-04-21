@@ -6,464 +6,155 @@ const whatsappUrl =
   "https://wa.me/917042722201?text=Hi%20I%20want%20to%20know%20about%20Eazy-PG";
 
 const amenities = [
-  "Bed",
-  "Light",
-  "Fan",
-  "AC",
-  "RO water",
-  "Kitchen",
-  "Washroom",
-  "Refrigerator",
-  "Washing machine",
+  "Bed", "Light", "Fan", "AC", "RO water", "Kitchen", "Washroom", "Refrigerator", "Washing machine",
 ];
 
 const roomTypes = [
   {
     title: "Single Sharing",
-    price: "₹15,000/month",
-    description:
-      "A private and comfortable option for working professionals who prefer more personal space and a quieter routine.",
-    features: ["Bed included", "AC and fan", "Washroom access", "Ideal for focused living"],
+    price: "₹15,000",
+    description: "Private sanctuary for focused professionals.",
+    image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=2071&auto=format&fit=crop",
+    features: ["Bed included", "AC & Fan", "Washroom", "Personal Space"],
   },
   {
     title: "Double Sharing",
-    price: "₹8,000/month",
-    description:
-      "A practical and affordable option for professionals who want comfort, essential amenities, and better value.",
-    features: ["Budget friendly", "Shared comfort", "Daily-use essentials", "Professional-friendly setup"],
+    price: "₹8,000",
+    description: "Shared comfort with premium essentials.",
+    image: "https://images.unsplash.com/photo-1555854817-5a226a7f802b?q=80&w=2070&auto=format&fit=crop",
+    features: ["Budget Friendly", "Shared Comfort", "Daily Essentials", "Great Value"],
   },
 ];
 
 const galleryItems = [
-  {
-    title: "Modern Room",
-    label: "Spacious and comfortable single room",
-    imageUrl: "https://images.unsplash.com/photo-1560440021-33f9b867899d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    title: "Clean Washroom",
-    label: "Hygienic and well-maintained washroom facilities",
-    imageUrl: "https://images.unsplash.com/photo-1616041012359-5f21273934d4?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    title: "Equipped Kitchen",
-    label: "Shared kitchen with essential amenities",
-    imageUrl: "https://images.unsplash.com/photo-1582268611958-f2ed257488cd?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    title: "Property Exterior",
-    label: "Modern and well-kept building exterior",
-    imageUrl: "https://images.unsplash.com/photo-1549419147-19a9d20c4515?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-];
-
-const faqs = [
-  {
-    question: "Who is Eazy-PG best suited for?",
-    answer:
-      "Eazy-PG is designed for working professionals looking for a simple, comfortable, and convenient place to stay in Greater Noida West.",
-  },
-  {
-    question: "Do you offer options for both men and women?",
-    answer:
-      "Yes. Eazy-PG is intended for both men and women, depending on availability and property rules.",
-  },
-  {
-    question: "What room types are available?",
-    answer:
-      "Currently, Eazy-PG offers single sharing and double sharing options.",
-  },
-  {
-    question: "Can I contact directly on WhatsApp?",
-    answer:
-      "Yes. You can enquire directly on WhatsApp for availability, visits, and room details.",
-  },
+  { title: "The Master Suite", label: "Elegant and spacious living", imageUrl: "https://images.unsplash.com/photo-1560440021-33f9b867899d?q=80&w=2940&auto=format&fit=crop" },
+  { title: "Modern Amenities", label: "Hygienic and sleek facilities", imageUrl: "https://images.unsplash.com/photo-1616041012359-5f21273934d4?q=80&w=2940&auto=format&fit=crop" },
+  { title: "Gourmet Kitchen", label: "Fully equipped for your needs", imageUrl: "https://images.unsplash.com/photo-1582268611958-f2ed257488cd?q=80&w=2940&auto=format&fit=crop" },
+  { title: "Premium Exterior", label: "Located in prime Greater Noida West", imageUrl: "https://images.unsplash.com/photo-1549419147-19a9d20c4515?q=80&w=2940&auto=format&fit=crop" },
 ];
 
 export default function Home() {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    phoneNumber: '',
-    roomType: 'Single Sharing',
-    moveInMonth: '',
-    occupation: '',
-    message: '',
-  });
+  const [formData, setFormData] = useState({ fullName: '', phoneNumber: '', roomType: 'Single Sharing', moveInMonth: '', occupation: '', message: '' });
+  const [errors, setErrors] = useState({ fullName: '', phoneNumber: '' });
 
-  const [errors, setErrors] = useState({
-    fullName: '',
-    phoneNumber: '',
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: '' });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     let newErrors = { fullName: '', phoneNumber: '' };
     let isValid = true;
-
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = 'Full name is required.';
-      isValid = false;
-    }
-
-    const phoneRegex = /^[0-9]{10,15}$/; // Basic 10-15 digit number check
-    if (!formData.phoneNumber.trim()) {
-      newErrors.phoneNumber = 'Phone number is required.';
-      isValid = false;
-    } else if (!phoneRegex.test(formData.phoneNumber)) {
-      newErrors.phoneNumber = 'Enter a valid phone number (10-15 digits).';
-      isValid = false;
-    }
-
+    if (!formData.fullName.trim()) { newErrors.fullName = 'Required'; isValid = false; }
+    if (!formData.phoneNumber.trim()) { newErrors.phoneNumber = 'Required'; isValid = false; }
     setErrors(newErrors);
-
-    if (isValid) {
-      console.log('Form Data:', formData);
-      alert('Enquiry submitted successfully! (Check console for data)');
-      // In a real app, send formData to your backend here
-      setFormData({ // Clear form after successful submission
-        fullName: '',
-        phoneNumber: '',
-        roomType: 'Single Sharing',
-        moveInMonth: '',
-        occupation: '',
-        message: '',
-      });
-    }
+    if (isValid) { alert('Enquiry Sent!'); }
   };
 
   return (
-    <main className="bg-[var(--background)] text-[var(--foreground)]">
-      <section className="border-b border-[var(--border-color)] bg-gradient-to-b from-[var(--light-background)] to-[var(--background)]">
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-6 lg:px-8">
-          <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <img src="/images/eazy-pg-logo.png" alt="Eazy-PG Logo" className="h-10 w-auto" />
-              <h1 className="sr-only">
-                Eazy-PG: Simple PG living for working professionals
-              </h1>
-            </div>
-            <nav className="flex flex-wrap gap-3 text-sm text-[var(--secondary-color)]">
-              <a href="#rooms" className="transition hover:text-[var(--primary-color)]">
-                Rooms
-              </a>
-              <a href="#amenities" className="transition hover:text-[var(--primary-color)]">
-                Amenities
-              </a>
-              <a href="#gallery" className="transition hover:text-[var(--primary-color)]">
-                Gallery
-              </a>
-              <a href="#contact" className="transition hover:text-[var(--primary-color)]">
-                Contact
-              </a>
+    <main className="bg-white">
+      {/* Hero Section with Big Image Backdrop */}
+      <section className="relative h-[80vh] w-full">
+        <img 
+          src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1980&auto=format&fit=crop" 
+          alt="Luxury Interior" 
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40 flex flex-col justify-between p-6 lg:p-12">
+          <header className="flex justify-between items-center">
+            <img src="/images/eazy-pg-logo.png" alt="Logo" className="h-12 w-auto brightness-0 invert" />
+            <nav className="hidden md:flex gap-8 text-white font-medium">
+              <a href="#rooms">Rooms</a>
+              <a href="#gallery">Gallery</a>
+              <a href="#contact">Contact</a>
             </nav>
           </header>
-
-          <div className="grid gap-10 py-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:py-10">
-            <div className="space-y-6">
-              <div className="inline-flex rounded-full border border-[color-mix(in srgb, var(--primary-color) 30%, var(--background))] bg-[color-mix(in srgb, var(--primary-color) 10%, var(--background))] px-4 py-2 text-sm font-medium text-[var(--primary-color)]">
-                Greater Noida West, India
-              </div>
-              <div className="space-y-4">
-                <h2 className="max-w-3xl text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl">
-                  Comfortable stays that keep life easy.
-                </h2>
-                <p className="max-w-2xl text-lg leading-8 text-[var(--secondary-color)]">
-                  Eazy-PG offers clean, practical, and professional-friendly accommodation for people who want a dependable place to live near work.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center justify-center rounded-full bg-[var(--primary-color)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--secondary-color)]"
-                >
-                  Enquire now
-                </a>
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-full border border-[var(--border-color)] px-6 py-3 text-sm font-semibold text-[var(--primary-color)] transition hover:border-[var(--secondary-color)] hover:text-[var(--secondary-color)]"
-                >
-                  WhatsApp us
-                </a>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-3">
-                <div className="rounded-2xl border border-[var(--border-color)] p-4">
-                  <p className="text-2xl font-bold">2</p>
-                  <p className="mt-1 text-sm text-[var(--secondary-color)]">Room options available</p>
-                </div>
-                <div className="rounded-2xl border border-[var(--border-color)] p-4">
-                  <p className="text-2xl font-bold">Both</p>
-                  <p className="mt-1 text-sm text-[var(--secondary-color)]">Suitable for men & women</p>
-                </div>
-                <div className="rounded-2xl border border-[var(--border-color)] p-4">
-                  <p className="text-2xl font-bold">Simple</p>
-                  <p className="mt-1 text-sm text-[var(--secondary-color)]">Essential amenities included</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-[2rem] border border-[var(--border-color)] bg-[var(--foreground)] p-8 text-white shadow-xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--accent-color)]">
-                Why Eazy-PG
-              </p>
-              <ul className="mt-6 space-y-4 text-sm leading-7 text-white">
-                <li>• Designed for working professionals</li>
-                <li>• Single and double sharing options</li>
-                <li>• Daily-use essentials already available</li>
-                <li>• Convenient location in Greater Noida West</li>
-              </ul>
-              <div className="mt-8 rounded-2xl bg-white/10 p-5">
-                <p className="text-sm text-[var(--accent-color)]">Direct contact</p>
-                <p className="mt-2 text-xl font-semibold">WhatsApp: +91 7042722201</p>
-              </div>
+          <div className="max-w-3xl text-white pb-12">
+            <h1 className="text-5xl lg:text-7xl font-bold leading-tight">Elevated Living for Professionals.</h1>
+            <p className="mt-6 text-xl text-slate-200">Modern PG accommodation in Greater Noida West.</p>
+            <div className="mt-10 flex gap-4">
+              <a href="#contact" className="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-slate-200 transition">Book a Visit</a>
+              <a href={whatsappUrl} className="bg-emerald-500 text-white px-8 py-4 rounded-full font-bold hover:bg-emerald-600 transition">WhatsApp Now</a>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="rooms" className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
-        <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--primary-color)]">
-            Room options
-          </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-            Simple and practical stay options
-          </h2>
-          <p className="mt-4 text-base leading-7 text-[var(--secondary-color)]">
-            Eazy-PG currently offers clear and straightforward room choices for working professionals.
-          </p>
+      {/* Featured Rooms */}
+      <section id="rooms" className="py-24 px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold">Refined Room Options</h2>
+          <div className="h-1 w-20 bg-blue-600 mx-auto mt-4"></div>
         </div>
-
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+        <div className="grid md:grid-cols-2 gap-12">
           {roomTypes.map((room) => (
-            <article
-              key={room.title}
-              className="rounded-3xl border border-[var(--border-color)] p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-            >
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--secondary-color)]">
-                {room.title}
-              </p>
-              <p className="mt-4 text-2xl font-bold text-[var(--foreground)]">{room.price}</p>
-              <p className="mt-4 text-sm leading-7 text-[var(--secondary-color)]">{room.description}</p>
-              <ul className="mt-6 space-y-2 text-sm text-[var(--foreground)]">
-                {room.features.map((feature) => (
-                  <li key={feature}>• {feature}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="amenities" className="bg-[var(--light-background)] py-16">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--primary-color)]">
-                Amenities
-              </p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-                Everyday essentials already covered
-              </h2>
-              <p className="mt-4 text-base leading-7 text-[var(--secondary-color)]">
-                A simple setup with the core facilities working professionals usually need for day-to-day living.
-              </p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-              {amenities.map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-[var(--border-color)] bg-[var(--background)] p-5 text-sm font-medium text-[var(--foreground)] shadow-sm"
-                >
-                  {item}
+            <div key={room.title} className="group cursor-pointer">
+              <div className="overflow-hidden rounded-2xl aspect-video">
+                <img src={room.image} alt={room.title} className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+              </div>
+              <div className="mt-6 flex justify-between items-end">
+                <div>
+                  <h3 className="text-2xl font-bold">{room.title}</h3>
+                  <p className="text-slate-500 mt-2">{room.description}</p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="gallery" className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
-        <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--primary-color)]">
-            Gallery preview
-          </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-            Ready for real property photos
-          </h2>
-          <p className="mt-4 text-base leading-7 text-[var(--secondary-color)]">
-            No photos have been added yet, so the website currently uses clean placeholders. Real photos can be added later without changing the layout.
-          </p>
-        </div>
-
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          {galleryItems.map((item) => (
-            <div
-              key={item.title}
-              className="overflow-hidden rounded-3xl border border-[var(--border-color)] bg-[var(--background)] shadow-sm"
-            >
-              <img
-                src={item.imageUrl}
-                alt={item.title}
-                className="h-56 w-full object-cover"
-              />
-              <div className="p-5">
-                <p className="text-sm font-medium text-[var(--muted-text)]">{item.label}</p>
+                <div className="text-right">
+                  <span className="text-3xl font-bold text-blue-600">{room.price}</span>
+                  <p className="text-sm text-slate-400">/month</p>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="bg-[var(--foreground)] py-16 text-white">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--accent-color)]">
-                Why people enquire
-              </p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-                Clear details. Direct WhatsApp contact. Easy decision-making.
-              </h2>
-              <p className="mt-4 max-w-xl text-base leading-7 text-[var(--light-background)]">
-                A lead-generation website should keep things simple: show the room options, explain the essentials, and make it easy to contact you quickly.
-              </p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {faqs.map((faq) => (
-                <div key={faq.question} className="rounded-2xl border border-white/20 bg-white/10 p-5">
-                  <p className="font-semibold">{faq.question}</p>
-                  <p className="mt-3 text-sm leading-7 text-white/80">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
+      {/* Visual Gallery */}
+      <section id="gallery" className="bg-slate-900 py-24 px-6 text-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold mb-12">Property Showcase</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {galleryItems.map((item, idx) => (
+              <div key={idx} className="relative aspect-square overflow-hidden rounded-lg gallery-card">
+                <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-black/20 hover:bg-black/0 transition duration-300"></div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="contact" className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+      {/* Contact Section */}
+      <section id="contact" className="py-24 px-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--primary-color)]">
-              Contact & enquiry
-            </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-              Book a visit or ask for room availability
-            </h2>
-            <p className="mt-4 text-base leading-7 text-[var(--secondary-color)]">
-              This Stage 1 version keeps enquiries simple. Visitors can fill the form or continue directly on WhatsApp.
-            </p>
-            <div className="mt-8 rounded-3xl border border-[var(--border-color)] bg-[var(--light-background)] p-6">
-              <p className="text-sm font-semibold text-[var(--secondary-color)]">Location</p>
-              <p className="mt-2 text-lg font-semibold text-[var(--foreground)]">Greater Noida West, India</p>
-              <p className="mt-4 text-sm text-[var(--secondary-color)]">WhatsApp: +91 7042722201</p>
+            <h2 className="text-4xl font-bold mb-6">Experience it yourself.</h2>
+            <p className="text-lg text-slate-600 mb-8">Schedule a walkthrough of our Greater Noida West property today.</p>
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">L</div>
+                <span>Greater Noida West, India</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold">W</div>
+                <span>+91 7042722201</span>
+              </div>
             </div>
           </div>
-
-          <form onSubmit={handleSubmit} className="grid gap-4 rounded-[2rem] border border-[var(--border-color)] bg-[var(--background)] p-6 shadow-sm sm:grid-cols-2">
-            <div className="sm:col-span-2">
-              <label htmlFor="fullName" className="mb-2 block text-sm font-medium text-[var(--foreground)]">Full name</label>
-              <input
-                id="fullName"
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleChange}
-                className={`w-full rounded-2xl border px-4 py-3 outline-none transition focus:border-[var(--primary-color)] ${errors.fullName ? 'border-red-500' : 'var(--border-color)'}`}
-                placeholder="Enter your name"
-                required
-              />
-              {errors.fullName && <p className="mt-1 text-sm text-red-500">{errors.fullName}</p>}
-            </div>
-            <div>
-              <label htmlFor="phoneNumber" className="mb-2 block text-sm font-medium text-[var(--foreground)]">Phone number</label>
-              <input
-                id="phoneNumber"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                className={`w-full rounded-2xl border px-4 py-3 outline-none transition focus:border-[var(--primary-color)] ${errors.phoneNumber ? 'border-red-500' : 'var(--border-color)'}`}
-                placeholder="Enter phone number"
-                required
-              />
-              {errors.phoneNumber && <p className="mt-1 text-sm text-red-500">{errors.phoneNumber}</p>}
-            </div>
-            <div>
-              <label htmlFor="roomType" className="mb-2 block text-sm font-medium text-[var(--foreground)]">Preferred room type</label>
-              <select
-                id="roomType"
-                name="roomType"
-                value={formData.roomType}
-                onChange={handleChange}
-                className="w-full rounded-2xl border border-[var(--border-color)] px-4 py-3 outline-none transition focus:border-[var(--primary-color)]"
-              >
-                <option>Single Sharing</option>
-                <option>Double Sharing</option>
-              </select>
-            </div>
-            <div>
-              <label htmlFor="moveInMonth" className="mb-2 block text-sm font-medium text-[var(--foreground)]">Move-in month</label>
-              <input
-                id="moveInMonth"
-                name="moveInMonth"
-                value={formData.moveInMonth}
-                onChange={handleChange}
-                className="w-full rounded-2xl border border-[var(--border-color)] px-4 py-3 outline-none transition focus:border-[var(--primary-color)]"
-                placeholder="e.g. May 2026"
-              />
-            </div>
-            <div>
-              <label htmlFor="occupation" className="mb-2 block text-sm font-medium text-[var(--foreground)]">Occupation</label>
-              <input
-                id="occupation"
-                name="occupation"
-                value={formData.occupation}
-                onChange={handleChange}
-                className="w-full rounded-2xl border border-[var(--border-color)] px-4 py-3 outline-none transition focus:border-[var(--primary-color)]"
-                placeholder="Working professional"
-              />
-            </div>
-            <div className="sm:col-span-2">
-              <label htmlFor="message" className="mb-2 block text-sm font-medium text-[var(--foreground)]">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                className="min-h-32 w-full rounded-2xl border border-[var(--border-color)] px-4 py-3 outline-none transition focus:border-[var(--primary-color)]"
-                placeholder="Tell us which room type you are looking for"
-              />
-            </div>
-            <div className="sm:col-span-2 flex flex-col gap-3 sm:flex-row">
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center rounded-full bg-[var(--primary-color)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--secondary-color)]"
-              >
-                Submit enquiry
-              </button>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full border border-[var(--primary-color)] px-6 py-3 text-sm font-semibold text-[var(--primary-color)] transition hover:border-[var(--secondary-color)] hover:text-[var(--secondary-color)]"
-              >
-                Continue on WhatsApp
-              </a>
-            </div>
+          <form onSubmit={handleSubmit} className="bg-slate-50 p-8 rounded-3xl space-y-4">
+            <input name="fullName" value={formData.fullName} onChange={handleChange} className="w-full p-4 rounded-xl border border-slate-200" placeholder="Your Name" />
+            <input name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} className="w-full p-4 rounded-xl border border-slate-200" placeholder="Phone Number" />
+            <select name="roomType" value={formData.roomType} onChange={handleChange} className="w-full p-4 rounded-xl border border-slate-200">
+              <option>Single Sharing</option>
+              <option>Double Sharing</option>
+            </select>
+            <textarea name="message" value={formData.message} onChange={handleChange} className="w-full p-4 rounded-xl border border-slate-200 h-32" placeholder="Message"></textarea>
+            <button className="w-full bg-black text-white py-4 rounded-xl font-bold hover:bg-slate-800 transition">Send Enquiry</button>
           </form>
         </div>
       </section>
 
-      <footer className="border-t border-[var(--border-color)] bg-[var(--light-background)]">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-8 text-sm text-[var(--secondary-color)] sm:flex-row sm:items-center sm:justify-between lg:px-8">
-          <p>© 2026 Eazy-PG. All rights reserved.</p>
-          <p>Simple PG living in Greater Noida West.</p>
-        </div>
+      <footer className="py-12 border-t border-slate-100 text-center text-slate-400 text-sm">
+        © 2026 Eazy-PG • Premium Living for Professionals
       </footer>
     </main>
   );
