@@ -129,14 +129,13 @@ export default function Home() {
           <div>
             <h2 className="text-4xl font-bold mb-6">Experience it yourself.</h2>
             <p className="text-lg text-slate-600 mb-8">Schedule a walkthrough of our Greater Noida West property today.</p>
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">L</div>
-                <span>Greater Noida West, India</span>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center">
+                <img src="/images/eazy-pg-logo.png" alt="Logo" className="w-full h-full object-contain" />
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold">W</div>
-                <span>+91 7042722201</span>
+              <div className="flex flex-col">
+                <span className="text-xl font-bold">Eazy-PG</span>
+                <span className="text-sm text-slate-500">Greater Noida West, India</span>
               </div>
             </div>
           </div>
