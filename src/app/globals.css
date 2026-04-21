@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8f8f8; /* Very light, warm off-white */
-  --foreground: #333333; /* Rich, deep charcoal grey */
-  --primary-color: #007B87; /* Sophisticated deep teal */
-  --secondary-color: #D6BD8A; /* Subtle gold accent */
-  --muted-text: #6b7280; /* Soft grey for less prominent text */
+  --background: #ffffff; /* Clean white for primary background */
+  --foreground: #212529; /* Dark charcoal for rich text contrast */
+  --primary-color: #007bff; /* A vibrant, professional blue */
+  --secondary-color: #6c757d; /* A muted grey for secondary elements */
+  --accent-color: #ffc107; /* A subtle golden accent for highlights */
+  --border-color: #e2e8f0; /* Light border for clean lines */
+  --light-background: #f8f9fa; /* Very light background for subtle sections */
 }
 
 @theme inline {
@@ -27,7 +29,7 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Roboto', 'Open Sans', sans-serif; /* A clean, modern sans-serif */
+  font-family: 'Montserrat', 'Open Sans', sans-serif; /* A popular, elegant font for modern design */
 }
 
 a {
