@@ -14,23 +14,23 @@ const roomTypes = [
     title: "Single Sharing",
     price: "₹15,000",
     description: "Private sanctuary for focused professionals.",
-    image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=2071&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=1000",
     features: ["Bed included", "AC & Fan", "Washroom", "Personal Space"],
   },
   {
     title: "Double Sharing",
     price: "₹8,000",
     description: "Shared comfort with premium essentials.",
-    image: "https://images.unsplash.com/photo-1555854817-5a226a7f802b?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1555854817-5a226a7f802b?auto=format&fit=crop&q=80&w=1000",
     features: ["Budget Friendly", "Shared Comfort", "Daily Essentials", "Great Value"],
   },
 ];
 
 const galleryItems = [
-  { title: "The Master Suite", label: "Elegant and spacious living", imageUrl: "https://images.unsplash.com/photo-1560440021-33f9b867899d?q=80&w=2940&auto=format&fit=crop" },
-  { title: "Modern Amenities", label: "Hygienic and sleek facilities", imageUrl: "https://images.unsplash.com/photo-1616041012359-5f21273934d4?q=80&w=2940&auto=format&fit=crop" },
-  { title: "Gourmet Kitchen", label: "Fully equipped for your needs", imageUrl: "https://images.unsplash.com/photo-1582268611958-f2ed257488cd?q=80&w=2940&auto=format&fit=crop" },
-  { title: "Premium Exterior", label: "Located in prime Greater Noida West", imageUrl: "https://images.unsplash.com/photo-1549419147-19a9d20c4515?q=80&w=2940&auto=format&fit=crop" },
+  { title: "The Master Suite", label: "Elegant and spacious living", imageUrl: "https://images.unsplash.com/photo-1560440021-33f9b867899d?auto=format&fit=crop&q=80&w=1000" },
+  { title: "Modern Amenities", label: "Hygienic and sleek facilities", imageUrl: "https://images.unsplash.com/photo-1616041012359-5f21273934d4?auto=format&fit=crop&q=80&w=1000" },
+  { title: "Gourmet Kitchen", label: "Fully equipped for your needs", imageUrl: "https://images.unsplash.com/photo-1582268611958-f2ed257488cd?auto=format&fit=crop&q=80&w=1000" },
+  { title: "Premium Exterior", label: "Located in prime Greater Noida West", imageUrl: "https://images.unsplash.com/photo-1549419147-19a9d20c4515?auto=format&fit=crop&q=80&w=1000" },
 ];
 
 export default function Home() {
@@ -54,11 +54,11 @@ export default function Home() {
 
   return (
     <main className="bg-white">
-      {/* Hero Section with Big Image Backdrop */}
+      {/* Hero Section */}
       <section className="relative h-[80vh] w-full">
         <img 
-          src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1980&auto=format&fit=crop" 
-          alt="Luxury Interior" 
+          src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=1600" 
+          alt="Hero" 
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-black/40 flex flex-col justify-between p-6 lg:p-12">
@@ -90,7 +90,7 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-12">
           {roomTypes.map((room) => (
             <div key={room.title} className="group cursor-pointer">
-              <div className="overflow-hidden rounded-2xl aspect-video">
+              <div className="overflow-hidden rounded-2xl aspect-video bg-slate-100">
                 <img src={room.image} alt={room.title} className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
               </div>
               <div className="mt-6 flex justify-between items-end">
@@ -114,7 +114,7 @@ export default function Home() {
           <h2 className="text-4xl font-bold mb-12">Property Showcase</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {galleryItems.map((item, idx) => (
-              <div key={idx} className="relative aspect-square overflow-hidden rounded-lg gallery-card">
+              <div key={idx} className="relative aspect-square overflow-hidden rounded-lg gallery-card bg-slate-800">
                 <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/20 hover:bg-black/0 transition duration-300"></div>
               </div>
@@ -129,13 +129,15 @@ export default function Home() {
           <div>
             <h2 className="text-4xl font-bold mb-6">Experience it yourself.</h2>
             <p className="text-lg text-slate-600 mb-8">Schedule a walkthrough of our Greater Noida West property today.</p>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center bg-white">
-                <img src="/images/eazy-pg-logo.png" alt="Logo" className="w-full h-full object-contain p-1" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold">Eazy-PG</span>
-                <span className="text-sm text-slate-500">Greater Noida West, India</span>
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center bg-white shadow-sm border border-slate-100">
+                  <img src="/images/eazy-pg-logo.png" alt="Logo" className="w-full h-full object-contain p-2" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xl font-bold">Eazy-PG</span>
+                  <span className="text-sm text-slate-500">Greater Noida West, India</span>
+                </div>
               </div>
             </div>
           </div>
