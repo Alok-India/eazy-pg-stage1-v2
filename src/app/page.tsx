@@ -138,7 +138,7 @@ export default function Home() {
 
   return (
     <main className="bg-[var(--background)] text-[var(--foreground)]">
-      <section className="border-b border-slate-200 bg-gradient-to-b from-slate-50 to-white">
+      <section className="border-b border-[var(--border-color)] bg-gradient-to-b from-[var(--light-background)] to-[var(--background)]">
         <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-6 lg:px-8">
           <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
@@ -147,7 +147,7 @@ export default function Home() {
                 Eazy-PG: Simple PG living for working professionals
               </h1>
             </div>
-            <nav className="flex flex-wrap gap-3 text-sm text-[var(--muted-text)]">
+            <nav className="flex flex-wrap gap-3 text-sm text-[var(--secondary-color)]">
               <a href="#rooms" className="transition hover:text-[var(--primary-color)]">
                 Rooms
               </a>
@@ -172,7 +172,7 @@ export default function Home() {
                 <h2 className="max-w-3xl text-4xl font-bold tracking-tight text-[var(--foreground)] sm:text-5xl">
                   Comfortable stays that keep life easy.
                 </h2>
-                <p className="max-w-2xl text-lg leading-8 text-[var(--muted-text)]">
+                <p className="max-w-2xl text-lg leading-8 text-[var(--secondary-color)]">
                   Eazy-PG offers clean, practical, and professional-friendly accommodation for people who want a dependable place to live near work.
                 </p>
               </div>
@@ -187,39 +187,39 @@ export default function Home() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-full border border-[var(--primary-color)] px-6 py-3 text-sm font-semibold text-[var(--primary-color)] transition hover:border-[var(--secondary-color)] hover:text-[var(--secondary-color)]"
+                  className="inline-flex items-center justify-center rounded-full border border-[var(--border-color)] px-6 py-3 text-sm font-semibold text-[var(--primary-color)] transition hover:border-[var(--secondary-color)] hover:text-[var(--secondary-color)]"
                 >
                   WhatsApp us
                 </a>
               </div>
               <div className="grid gap-4 sm:grid-cols-3">
-                <div className="rounded-2xl border border-slate-200 p-4">
+                <div className="rounded-2xl border border-[var(--border-color)] p-4">
                   <p className="text-2xl font-bold">2</p>
-                  <p className="mt-1 text-sm text-[var(--muted-text)]">Room options available</p>
+                  <p className="mt-1 text-sm text-[var(--secondary-color)]">Room options available</p>
                 </div>
-                <div className="rounded-2xl border border-slate-200 p-4">
+                <div className="rounded-2xl border border-[var(--border-color)] p-4">
                   <p className="text-2xl font-bold">Both</p>
-                  <p className="mt-1 text-sm text-[var(--muted-text)]">Suitable for men & women</p>
+                  <p className="mt-1 text-sm text-[var(--secondary-color)]">Suitable for men & women</p>
                 </div>
-                <div className="rounded-2xl border border-slate-200 p-4">
+                <div className="rounded-2xl border border-[var(--border-color)] p-4">
                   <p className="text-2xl font-bold">Simple</p>
-                  <p className="mt-1 text-sm text-[var(--muted-text)]">Essential amenities included</p>
+                  <p className="mt-1 text-sm text-[var(--secondary-color)]">Essential amenities included</p>
                 </div>
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-[color-mix(in srgb, var(--primary-color) 30%, var(--background))] bg-[var(--foreground)] p-8 text-white shadow-xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--secondary-color)]">
+            <div className="rounded-[2rem] border border-[var(--border-color)] bg-[var(--foreground)] p-8 text-white shadow-xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--accent-color)]">
                 Why Eazy-PG
               </p>
-              <ul className="mt-6 space-y-4 text-sm leading-7 text-slate-200">
+              <ul className="mt-6 space-y-4 text-sm leading-7 text-white">
                 <li>• Designed for working professionals</li>
                 <li>• Single and double sharing options</li>
                 <li>• Daily-use essentials already available</li>
                 <li>• Convenient location in Greater Noida West</li>
               </ul>
               <div className="mt-8 rounded-2xl bg-white/10 p-5">
-                <p className="text-sm text-blue-300">Direct contact</p>
+                <p className="text-sm text-[var(--accent-color)]">Direct contact</p>
                 <p className="mt-2 text-xl font-semibold">WhatsApp: +91 7042722201</p>
               </div>
             </div>
@@ -235,7 +235,7 @@ export default function Home() {
           <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
             Simple and practical stay options
           </h2>
-          <p className="mt-4 text-base leading-7 text-[var(--muted-text)]">
+          <p className="mt-4 text-base leading-7 text-[var(--secondary-color)]">
             Eazy-PG currently offers clear and straightforward room choices for working professionals.
           </p>
         </div>
@@ -244,13 +244,13 @@ export default function Home() {
           {roomTypes.map((room) => (
             <article
               key={room.title}
-              className="rounded-3xl border border-slate-200 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              className="rounded-3xl border border-[var(--border-color)] p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
             >
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--muted-text)]">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--secondary-color)]">
                 {room.title}
               </p>
               <p className="mt-4 text-2xl font-bold text-[var(--foreground)]">{room.price}</p>
-              <p className="mt-4 text-sm leading-7 text-[var(--muted-text)]">{room.description}</p>
+              <p className="mt-4 text-sm leading-7 text-[var(--secondary-color)]">{room.description}</p>
               <ul className="mt-6 space-y-2 text-sm text-[var(--foreground)]">
                 {room.features.map((feature) => (
                   <li key={feature}>• {feature}</li>
@@ -261,7 +261,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="amenities" className="bg-slate-50 py-16">
+      <section id="amenities" className="bg-[var(--light-background)] py-16">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div>
@@ -271,7 +271,7 @@ export default function Home() {
               <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
                 Everyday essentials already covered
               </h2>
-              <p className="mt-4 text-base leading-7 text-[var(--muted-text)]">
+              <p className="mt-4 text-base leading-7 text-[var(--secondary-color)]">
                 A simple setup with the core facilities working professionals usually need for day-to-day living.
               </p>
             </div>
@@ -279,7 +279,7 @@ export default function Home() {
               {amenities.map((item) => (
                 <div
                   key={item}
-                  className="rounded-2xl border border-slate-200 bg-white p-5 text-sm font-medium text-[var(--foreground)] shadow-sm"
+                  className="rounded-2xl border border-[var(--border-color)] bg-[var(--background)] p-5 text-sm font-medium text-[var(--foreground)] shadow-sm"
                 >
                   {item}
                 </div>
@@ -297,7 +297,7 @@ export default function Home() {
           <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
             Ready for real property photos
           </h2>
-          <p className="mt-4 text-base leading-7 text-[var(--muted-text)]">
+          <p className="mt-4 text-base leading-7 text-[var(--secondary-color)]">
             No photos have been added yet, so the website currently uses clean placeholders. Real photos can be added later without changing the layout.
           </p>
         </div>
@@ -306,7 +306,7 @@ export default function Home() {
           {galleryItems.map((item) => (
             <div
               key={item.title}
-              className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
+              className="overflow-hidden rounded-3xl border border-[var(--border-color)] bg-[var(--background)] shadow-sm"
             >
               <img
                 src={item.imageUrl}
@@ -325,21 +325,21 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--secondary-color)]">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--accent-color)]">
                 Why people enquire
               </p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
                 Clear details. Direct WhatsApp contact. Easy decision-making.
               </h2>
-              <p className="mt-4 max-w-xl text-base leading-7 text-slate-300">
+              <p className="mt-4 max-w-xl text-base leading-7 text-[var(--light-background)]">
                 A lead-generation website should keep things simple: show the room options, explain the essentials, and make it easy to contact you quickly.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {faqs.map((faq) => (
-                <div key={faq.question} className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <div key={faq.question} className="rounded-2xl border border-white/20 bg-white/10 p-5">
                   <p className="font-semibold">{faq.question}</p>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{faq.answer}</p>
+                  <p className="mt-3 text-sm leading-7 text-white/80">{faq.answer}</p>
                 </div>
               ))}
             </div>
@@ -356,17 +356,17 @@ export default function Home() {
             <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
               Book a visit or ask for room availability
             </h2>
-            <p className="mt-4 text-base leading-7 text-[var(--muted-text)]">
+            <p className="mt-4 text-base leading-7 text-[var(--secondary-color)]">
               This Stage 1 version keeps enquiries simple. Visitors can fill the form or continue directly on WhatsApp.
             </p>
-            <div className="mt-8 rounded-3xl border border-slate-200 bg-slate-50 p-6">
-              <p className="text-sm font-semibold text-[var(--muted-text)]">Location</p>
+            <div className="mt-8 rounded-3xl border border-[var(--border-color)] bg-[var(--light-background)] p-6">
+              <p className="text-sm font-semibold text-[var(--secondary-color)]">Location</p>
               <p className="mt-2 text-lg font-semibold text-[var(--foreground)]">Greater Noida West, India</p>
-              <p className="mt-4 text-sm text-[var(--muted-text)]">WhatsApp: +91 7042722201</p>
+              <p className="mt-4 text-sm text-[var(--secondary-color)]">WhatsApp: +91 7042722201</p>
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="grid gap-4 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:grid-cols-2">
+          <form onSubmit={handleSubmit} className="grid gap-4 rounded-[2rem] border border-[var(--border-color)] bg-[var(--background)] p-6 shadow-sm sm:grid-cols-2">
             <div className="sm:col-span-2">
               <label htmlFor="fullName" className="mb-2 block text-sm font-medium text-[var(--foreground)]">Full name</label>
               <input
@@ -374,7 +374,7 @@ export default function Home() {
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
-                className={`w-full rounded-2xl border px-4 py-3 outline-none transition focus:border-[var(--primary-color)] ${errors.fullName ? 'border-red-500' : 'border-slate-300'}`}
+                className={`w-full rounded-2xl border px-4 py-3 outline-none transition focus:border-[var(--primary-color)] ${errors.fullName ? 'border-red-500' : 'var(--border-color)'}`}
                 placeholder="Enter your name"
                 required
               />
@@ -387,7 +387,7 @@ export default function Home() {
                 name="phoneNumber"
                 value={formData.phoneNumber}
                 onChange={handleChange}
-                className={`w-full rounded-2xl border px-4 py-3 outline-none transition focus:border-[var(--primary-color)] ${errors.phoneNumber ? 'border-red-500' : 'border-slate-300'}`}
+                className={`w-full rounded-2xl border px-4 py-3 outline-none transition focus:border-[var(--primary-color)] ${errors.phoneNumber ? 'border-red-500' : 'var(--border-color)'}`}
                 placeholder="Enter phone number"
                 required
               />
@@ -400,7 +400,7 @@ export default function Home() {
                 name="roomType"
                 value={formData.roomType}
                 onChange={handleChange}
-                className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-[var(--primary-color)]"
+                className="w-full rounded-2xl border border-[var(--border-color)] px-4 py-3 outline-none transition focus:border-[var(--primary-color)]"
               >
                 <option>Single Sharing</option>
                 <option>Double Sharing</option>
@@ -413,7 +413,7 @@ export default function Home() {
                 name="moveInMonth"
                 value={formData.moveInMonth}
                 onChange={handleChange}
-                className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-[var(--primary-color)]"
+                className="w-full rounded-2xl border border-[var(--border-color)] px-4 py-3 outline-none transition focus:border-[var(--primary-color)]"
                 placeholder="e.g. May 2026"
               />
             </div>
@@ -424,7 +424,7 @@ export default function Home() {
                 name="occupation"
                 value={formData.occupation}
                 onChange={handleChange}
-                className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-[var(--primary-color)]"
+                className="w-full rounded-2xl border border-[var(--border-color)] px-4 py-3 outline-none transition focus:border-[var(--primary-color)]"
                 placeholder="Working professional"
               />
             </div>
@@ -435,7 +435,7 @@ export default function Home() {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                className="min-h-32 w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-[var(--primary-color)]"
+                className="min-h-32 w-full rounded-2xl border border-[var(--border-color)] px-4 py-3 outline-none transition focus:border-[var(--primary-color)]"
                 placeholder="Tell us which room type you are looking for"
               />
             </div>
@@ -459,8 +459,8 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-slate-200 bg-slate-50">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-8 text-sm text-[var(--muted-text)] sm:flex-row sm:items-center sm:justify-between lg:px-8">
+      <footer className="border-t border-[var(--border-color)] bg-[var(--light-background)]">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-8 text-sm text-[var(--secondary-color)] sm:flex-row sm:items-center sm:justify-between lg:px-8">
           <p>© 2026 Eazy-PG. All rights reserved.</p>
           <p>Simple PG living in Greater Noida West.</p>
         </div>
