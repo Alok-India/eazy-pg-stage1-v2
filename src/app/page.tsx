@@ -63,7 +63,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/40 flex flex-col justify-between p-6 lg:p-12">
           <header className="flex justify-between items-center">
-            <img src="/images/eazy-pg-logo.png" alt="Logo" className="h-12 w-auto" />
+            <img src="/images/eazy-pg-logo.png" alt="Logo" className="h-12 w-auto bg-white/10 rounded px-2" />
             <nav className="hidden md:flex gap-8 text-white font-medium">
               <a href="#rooms">Rooms</a>
               <a href="#gallery">Gallery</a>
@@ -130,8 +130,8 @@ export default function Home() {
             <h2 className="text-4xl font-bold mb-6">Experience it yourself.</h2>
             <p className="text-lg text-slate-600 mb-8">Schedule a walkthrough of our Greater Noida West property today.</p>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center">
-                <img src="/images/eazy-pg-logo.png" alt="Logo" className="w-full h-full object-contain" />
+              <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center bg-white">
+                <img src="/images/eazy-pg-logo.png" alt="Logo" className="w-full h-full object-contain p-1" />
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-bold">Eazy-PG</span>
