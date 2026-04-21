@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const whatsappUrl =
   "https://wa.me/917042722201?text=Hi%20I%20want%20to%20know%20about%20Eazy-PG";
 
@@ -77,6 +79,61 @@ const faqs = [
 ];
 
 export default function Home() {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phoneNumber: '',
+    roomType: 'Single Sharing',
+    moveInMonth: '',
+    occupation: '',
+    message: '',
+  });
+
+  const [errors, setErrors] = useState({
+    fullName: '',
+    phoneNumber: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: '' });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    let newErrors = { fullName: '', phoneNumber: '' };
+    let isValid = true;
+
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = 'Full name is required.';
+      isValid = false;
+    }
+
+    const phoneRegex = /^[0-9]{10,15}$/; // Basic 10-15 digit number check
+    if (!formData.phoneNumber.trim()) {
+      newErrors.phoneNumber = 'Phone number is required.';
+      isValid = false;
+    } else if (!phoneRegex.test(formData.phoneNumber)) {
+      newErrors.phoneNumber = 'Enter a valid phone number (10-15 digits).';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+
+    if (isValid) {
+      console.log('Form Data:', formData);
+      alert('Enquiry submitted successfully! (Check console for data)');
+      // In a real app, send formData to your backend here
+      setFormData({ // Clear form after successful submission
+        fullName: '',
+        phoneNumber: '',
+        roomType: 'Single Sharing',
+        moveInMonth: '',
+        occupation: '',
+        message: '',
+      });
+    }
+  };
+
   return (
     <main className="bg-white text-slate-900">
       <section className="border-b border-slate-200 bg-gradient-to-b from-slate-50 to-white">
@@ -309,52 +366,82 @@ export default function Home() {
             </div>
           </div>
 
-          <form className="grid gap-4 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:grid-cols-2">
+          <form onSubmit={handleSubmit} className="grid gap-4 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm sm:grid-cols-2">
             <div className="sm:col-span-2">
-              <label className="mb-2 block text-sm font-medium text-slate-700">Full name</label>
+              <label htmlFor="fullName" className="mb-2 block text-sm font-medium text-slate-700">Full name</label>
               <input
-                className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
+                id="fullName"
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+                className={`w-full rounded-2xl border px-4 py-3 outline-none transition focus:border-slate-950 ${errors.fullName ? 'border-red-500' : 'border-slate-300'}`}
                 placeholder="Enter your name"
+                required
               />
+              {errors.fullName && <p className="mt-1 text-sm text-red-500">{errors.fullName}</p>}
             </div>
             <div>
-              <label className="mb-2 block text-sm font-medium text-slate-700">Phone number</label>
+              <label htmlFor="phoneNumber" className="mb-2 block text-sm font-medium text-slate-700">Phone number</label>
               <input
-                className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
+                id="phoneNumber"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                className={`w-full rounded-2xl border px-4 py-3 outline-none transition focus:border-slate-950 ${errors.phoneNumber ? 'border-red-500' : 'border-slate-300'}`}
                 placeholder="Enter phone number"
+                required
               />
+              {errors.phoneNumber && <p className="mt-1 text-sm text-red-500">{errors.phoneNumber}</p>}
             </div>
             <div>
-              <label className="mb-2 block text-sm font-medium text-slate-700">Preferred room type</label>
-              <select className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950">
+              <label htmlFor="roomType" className="mb-2 block text-sm font-medium text-slate-700">Preferred room type</label>
+              <select
+                id="roomType"
+                name="roomType"
+                value={formData.roomType}
+                onChange={handleChange}
+                className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
+              >
                 <option>Single Sharing</option>
                 <option>Double Sharing</option>
               </select>
             </div>
             <div>
-              <label className="mb-2 block text-sm font-medium text-slate-700">Move-in month</label>
+              <label htmlFor="moveInMonth" className="mb-2 block text-sm font-medium text-slate-700">Move-in month</label>
               <input
+                id="moveInMonth"
+                name="moveInMonth"
+                value={formData.moveInMonth}
+                onChange={handleChange}
                 className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
                 placeholder="e.g. May 2026"
               />
             </div>
             <div>
-              <label className="mb-2 block text-sm font-medium text-slate-700">Occupation</label>
+              <label htmlFor="occupation" className="mb-2 block text-sm font-medium text-slate-700">Occupation</label>
               <input
+                id="occupation"
+                name="occupation"
+                value={formData.occupation}
+                onChange={handleChange}
                 className="w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
                 placeholder="Working professional"
               />
             </div>
             <div className="sm:col-span-2">
-              <label className="mb-2 block text-sm font-medium text-slate-700">Message</label>
+              <label htmlFor="message" className="mb-2 block text-sm font-medium text-slate-700">Message</label>
               <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 className="min-h-32 w-full rounded-2xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
                 placeholder="Tell us which room type you are looking for"
               />
             </div>
             <div className="sm:col-span-2 flex flex-col gap-3 sm:flex-row">
               <button
-                type="button"
+                type="submit"
                 className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
                 Submit enquiry
