@@ -31,10 +31,26 @@ const roomTypes = [
 ];
 
 const galleryItems = [
-  { title: "Room photo placeholder", label: "Replace with actual room image" },
-  { title: "Washroom placeholder", label: "Replace with washroom photo" },
-  { title: "Kitchen placeholder", label: "Replace with kitchen photo" },
-  { title: "Property exterior placeholder", label: "Replace with building photo" },
+  {
+    title: "Modern Room",
+    label: "Spacious and comfortable single room",
+    imageUrl: "https://images.unsplash.com/photo-1560440021-33f9b867899d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "Clean Washroom",
+    label: "Hygienic and well-maintained washroom facilities",
+    imageUrl: "https://images.unsplash.com/photo-1616041012359-5f21273934d4?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "Equipped Kitchen",
+    label: "Shared kitchen with essential amenities",
+    imageUrl: "https://images.unsplash.com/photo-1582268611958-f2ed257488cd?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    title: "Property Exterior",
+    label: "Modern and well-kept building exterior",
+    imageUrl: "https://images.unsplash.com/photo-1549419147-19a9d20c4515?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
 ];
 
 const faqs = [
@@ -235,9 +251,11 @@ export default function Home() {
               key={item.title}
               className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
             >
-              <div className="flex h-56 items-center justify-center bg-gradient-to-br from-emerald-100 via-slate-100 to-slate-200 px-6 text-center text-lg font-semibold text-slate-700">
-                {item.title}
-              </div>
+              <img
+                src={item.imageUrl}
+                alt={item.title}
+                className="h-56 w-full object-cover"
+              />
               <div className="p-5">
                 <p className="text-sm font-medium text-slate-600">{item.label}</p>
               </div>
