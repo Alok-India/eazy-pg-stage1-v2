@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc; /* Lighter, soft off-white for a clean background */
-  --foreground: #334155; /* Darker, soft grey for readable text */
+  --background: #f0f4f8; /* A very light, cool grey for a fresh, modern background */
+  --foreground: #2d3748; /* Darker, sophisticated grey for primary text */
+  --primary-color: #3182ce; /* A professional blue as an accent color */
+  --secondary-color: #2c5282; /* A slightly darker blue for subtle contrast */
 }
 
 @theme inline {
@@ -24,12 +26,16 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', sans-serif; /* Proposing a slightly more modern font stack */
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif; /* A popular, clean, and professional font */
 }
 
 a {
-  color: inherit;
+  color: var(--primary-color); /* Links use the primary accent color */
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline; /* Add subtle hover effect */
 }
 
 input,
@@ -40,6 +46,6 @@ button {
 }
 
 ::selection {
-  background: #a5f3fc; /* A subtle, modern highlight color */
-  color: #083344;
+  background: var(--primary-color); /* Selection uses the primary accent color */
+  color: #ffffff; /* White text on selection */
 }
