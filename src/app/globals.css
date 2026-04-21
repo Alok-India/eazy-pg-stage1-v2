@@ -1,18 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #1a202c;
-  --primary-color: #2b6cb0; /* Deep blue for trust */
-  --secondary-color: #f7fafc;
-  --muted-text: #4a5568;
-  --accent-color: #edf2f7;
+  --background: #fffdfa; /* Warm white */
+  --foreground: #2d241e; /* Deep earthy brown */
+  --primary-color: #8c6a5a; /* Warm taupe */
+  --secondary-color: #d9c5b2; /* Sandy beige */
+  --accent-color: #f4ece4; /* Soft cream */
+  --muted-text: #5e5046;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
 }
 
 * {
@@ -27,25 +26,19 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Playfair Display', serif; /* Elegant and cozy serif */
 }
 
-/* Image-first emphasis */
-.hero-image-container {
-  position: relative;
-  overflow: hidden;
+p, span, input, select, textarea, button {
+  font-family: 'Inter', sans-serif; /* Clean sans-serif for readability */
 }
 
-.image-overlay {
-  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6));
+.hero-overlay {
+  background: linear-gradient(to bottom, rgba(45, 36, 30, 0.2), rgba(45, 36, 30, 0.7));
 }
 
-.gallery-card img {
-  transition: transform 0.5s ease;
-}
-
-.gallery-card:hover img {
-  transform: scale(1.05);
+.card-shadow {
+  box-shadow: 0 10px 30px -15px rgba(140, 106, 90, 0.2);
 }
 
 ::selection {
