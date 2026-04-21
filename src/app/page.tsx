@@ -146,16 +146,16 @@ export default function Home() {
               </h1>
             </div>
             <nav className="flex flex-wrap gap-3 text-sm text-slate-600">
-              <a href="#rooms" className="transition hover:text-slate-950">
+              <a href="#rooms" className="transition hover:text-[var(--primary-color)]">
                 Rooms
               </a>
-              <a href="#amenities" className="transition hover:text-slate-950">
+              <a href="#amenities" className="transition hover:text-[var(--primary-color)]">
                 Amenities
               </a>
-              <a href="#gallery" className="transition hover:text-slate-950">
+              <a href="#gallery" className="transition hover:text-[var(--primary-color)]">
                 Gallery
               </a>
-              <a href="#contact" className="transition hover:text-slate-950">
+              <a href="#contact" className="transition hover:text-[var(--primary-color)]">
                 Contact
               </a>
             </nav>
@@ -163,7 +163,7 @@ export default function Home() {
 
           <div className="grid gap-10 py-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center lg:py-10">
             <div className="space-y-6">
-              <div className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-700">
+              <div className="inline-flex rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-[var(--primary-color)]">
                 Greater Noida West, India
               </div>
               <div className="space-y-4">
@@ -177,7 +177,7 @@ export default function Home() {
               <div className="flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#contact"
-                  className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                  className="inline-flex items-center justify-center rounded-full bg-[var(--primary-color)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--secondary-color)]"
                 >
                   Enquire now
                 </a>
@@ -185,7 +185,7 @@ export default function Home() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-slate-950 hover:text-slate-950"
+                  className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-[var(--primary-color)] hover:text-[var(--primary-color)]"
                 >
                   WhatsApp us
                 </a>
@@ -206,8 +206,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-slate-200 bg-slate-950 p-8 text-white shadow-xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
+            <div className="rounded-[2rem] border border-slate-200 bg-[var(--secondary-color)] p-8 text-white shadow-xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-200">
                 Why Eazy-PG
               </p>
               <ul className="mt-6 space-y-4 text-sm leading-7 text-slate-200">
@@ -217,7 +217,7 @@ export default function Home() {
                 <li>• Convenient location in Greater Noida West</li>
               </ul>
               <div className="mt-8 rounded-2xl bg-white/10 p-5">
-                <p className="text-sm text-slate-300">Direct contact</p>
+                <p className="text-sm text-blue-300">Direct contact</p>
                 <p className="mt-2 text-xl font-semibold">WhatsApp: +91 7042722201</p>
               </div>
             </div>
@@ -227,7 +227,7 @@ export default function Home() {
 
       <section id="rooms" className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--primary-color)]">
             Room options
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -263,7 +263,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--primary-color)]">
                 Amenities
               </p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -289,7 +289,7 @@ export default function Home() {
 
       <section id="gallery" className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--primary-color)]">
             Gallery preview
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -319,11 +319,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-slate-950 py-16 text-white">
+      <section className="bg-[var(--secondary-color)] py-16 text-white">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-200">
                 Why people enquire
               </p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -348,7 +348,7 @@ export default function Home() {
       <section id="contact" className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--primary-color)]">
               Contact & enquiry
             </p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -440,7 +440,7 @@ export default function Home() {
             <div className="sm:col-span-2 flex flex-col gap-3 sm:flex-row">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                className="inline-flex items-center justify-center rounded-full bg-[var(--primary-color)] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[var(--secondary-color)]"
               >
                 Submit enquiry
               </button>
@@ -448,7 +448,7 @@ export default function Home() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-slate-950 hover:text-slate-950"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-[var(--primary-color)] hover:text-[var(--primary-color)]"
               >
                 Continue on WhatsApp
               </a>
