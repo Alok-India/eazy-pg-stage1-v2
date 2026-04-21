@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f0f4f8; /* A very light, cool grey for a fresh, modern background */
-  --foreground: #2d3748; /* Darker, sophisticated grey for primary text */
-  --primary-color: #3182ce; /* A professional blue as an accent color */
-  --secondary-color: #2c5282; /* A slightly darker blue for subtle contrast */
+  --background: #f8f8f8; /* Very light, warm off-white */
+  --foreground: #333333; /* Rich, deep charcoal grey */
+  --primary-color: #007B87; /* Sophisticated deep teal */
+  --secondary-color: #D6BD8A; /* Subtle gold accent */
+  --muted-text: #6b7280; /* Soft grey for less prominent text */
 }
 
 @theme inline {
@@ -26,16 +27,16 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Open Sans', 'Helvetica Neue', sans-serif; /* A popular, clean, and professional font */
+  font-family: 'Roboto', 'Open Sans', sans-serif; /* A clean, modern sans-serif */
 }
 
 a {
-  color: var(--primary-color); /* Links use the primary accent color */
+  color: var(--primary-color);
   text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline; /* Add subtle hover effect */
+  text-decoration: underline;
 }
 
 input,
@@ -46,6 +47,6 @@ button {
 }
 
 ::selection {
-  background: var(--primary-color); /* Selection uses the primary accent color */
-  color: #ffffff; /* White text on selection */
+  background: var(--primary-color);
+  color: #ffffff;
 }
