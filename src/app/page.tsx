@@ -140,11 +140,9 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-6 lg:px-8">
           <header className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">
-                Eazy-PG
-              </p>
-              <h1 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
-                Simple PG living for working professionals
+              <img src="/images/eazy-pg-logo.png" alt="Eazy-PG Logo" className="h-10 w-auto" />
+              <h1 className="sr-only">
+                Eazy-PG: Simple PG living for working professionals
               </h1>
             </div>
             <nav className="flex flex-wrap gap-3 text-sm text-slate-600">
