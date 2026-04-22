@@ -93,8 +93,8 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/30 flex flex-col justify-between p-6 lg:p-12">
           <header className="flex justify-between items-center">
-            <div className="bg-white/90 p-2 rounded-xl backdrop-blur-sm">
-              <img src="/images/eazy-pg-logo.png" alt="Logo" className="h-10 w-auto" />
+            <div className="bg-white/95 p-3 rounded-xl backdrop-blur-sm shadow-md">
+              <img src="/images/eazy-pg-logo.png" alt="Logo" className="h-24 w-auto object-contain" />
             </div>
             <nav className="hidden md:flex gap-10 text-white font-medium text-lg drop-shadow-md">
               <a href="#rooms" className="hover:text-[var(--secondary-color)] transition">Rooms</a>
