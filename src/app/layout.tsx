@@ -29,7 +29,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
       <head>
-        <link rel="icon" href="/images/eazy-pg-logo.png" type="image/png" />
+        <link rel="icon" href="/eazy-pg-stage1-v2/images/eazy-pg-logo.png" type="image/png" />
       </head>
       <body className="min-h-full bg-white text-slate-900">{children}</body>
     </html>
