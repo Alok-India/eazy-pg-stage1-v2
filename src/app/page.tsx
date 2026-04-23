@@ -2,6 +2,9 @@
 
 import { useState } from 'react';
 
+const isProd = process.env.NODE_ENV === 'production';
+const base = isProd ? '/eazy-pg-stage1-v2' : '';
+
 const whatsappUrl =
   "https://wa.me/917042722201?text=Hi%20I%20want%20to%20know%20about%20Eazy-PG";
 
@@ -94,7 +97,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/30 flex flex-col justify-between p-6 lg:p-12">
           <header className="flex justify-between items-center">
             <div className="bg-white/95 p-3 rounded-xl backdrop-blur-sm shadow-md">
-              <img src="/images/eazy-pg-logo.png" alt="Logo" className="h-24 w-auto object-contain" />
+              <img src={`${base}/images/eazy-pg-logo.png`} alt="Logo" className="h-24 w-auto object-contain" />
             </div>
             <nav className="hidden md:flex gap-10 text-white font-medium text-lg drop-shadow-md">
               <a href="#rooms" className="hover:text-[var(--secondary-color)] transition">Rooms</a>
@@ -218,7 +221,7 @@ export default function Home() {
             <div className="space-y-8">
               <div className="flex items-start gap-6">
                 <div className="w-14 h-14 rounded-2xl bg-[var(--accent-color)] flex items-center justify-center flex-shrink-0">
-                   <img src="/images/eazy-pg-logo.png" alt="Eazy-PG" className="w-8 h-auto" />
+                   <img src={`${base}/images/eazy-pg-logo.png`} alt="Eazy-PG" className="w-8 h-auto" />
                 </div>
                 <div>
                   <h4 className="font-bold text-xl">Greater Noida West</h4>
@@ -283,7 +286,7 @@ export default function Home() {
       </section>
 
       <footer className="py-20 text-center">
-        <img src="/images/eazy-pg-logo.png" alt="Eazy-PG" className="h-8 w-auto mx-auto opacity-30 mb-6" />
+        <img src={`${base}/images/eazy-pg-logo.png`} alt="Eazy-PG" className="h-8 w-auto mx-auto opacity-30 mb-6" />
         <p className="text-sm text-[var(--muted-text)] font-sans">
           © 2026 Eazy-PG • Premium Living for Working Professionals • Greater Noida West
         </p>
